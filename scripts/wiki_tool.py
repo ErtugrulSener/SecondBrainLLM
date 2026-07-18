@@ -321,6 +321,7 @@ def command_log(args: argparse.Namespace) -> int:
 
 def command_doctor(_args: argparse.Namespace) -> int:
     errors: list[str] = []
+    warnings: list[str] = []
     required = [RAW_SOURCES, WIKI, SCHEMA, ROOT / "_templates", ROOT / ".agents" / "skills", ROOT / "scripts"]
     for path in required:
         if not path.is_dir():
@@ -329,10 +330,12 @@ def command_doctor(_args: argparse.Namespace) -> int:
         errors.append("Python 3.9 oder neuer ist erforderlich")
     for path in (CATALOG, MANIFEST):
         if not path.is_file():
-            errors.append(f"Artefakt fehlt: {relative(path)}")
+            warnings.append(f"Artefakt fehlt; mit Build beziehungsweise Source-Scan erzeugen: {relative(path)}")
     print(f"Python: {sys.version.split()[0]}")
     print(f"Raw-Quellen: {len(raw_notes())}")
     print(f"Wiki-Notizen: {len(compiled_notes())}")
+    for warning in warnings:
+        print(f"Warnung: {warning}")
     if errors:
         print("Doctor fehlgeschlagen:")
         for error in errors:
