@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -eu
+
+python scripts/wiki_tool.py build
+python scripts/wiki_tool.py lint
+python scripts/wiki_tool.py source-lint
+python scripts/audit_public.py
+
+git add Wiki/catalog.jsonl Wiki/index.md Wiki/Topics/index.md Wiki/Concepts/index.md Wiki/Entities/index.md Wiki/Projects/index.md Wiki/Logs/index.md
+if [ -f Schema/source-manifest.jsonl ]; then
+    git add Schema/source-manifest.jsonl
+fi
