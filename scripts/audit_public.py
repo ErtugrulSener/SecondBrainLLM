@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -34,8 +35,19 @@ def candidates():
 
 def main() -> int:
     errors = []
-    forbidden_state = [ROOT / ".obsidian" / name for name in ("plugins", "cache", "logs")]
-    errors.extend(f"Plugin-/Cache-Zustand vorhanden: {path.relative_to(ROOT)}" for path in forbidden_state if path.exists())
+    tracked_state = subprocess.run(
+        ["git", "ls-files", "--", ".obsidian/plugins", ".obsidian/cache", ".obsidian/logs"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if tracked_state.returncode == 0:
+        errors.extend(
+            f"Plugin-/Cache-Zustand von Git erfasst: {path}"
+            for path in tracked_state.stdout.splitlines()
+            if path
+        )
     for path in candidates():
         try:
             text = path.read_text(encoding="utf-8-sig")

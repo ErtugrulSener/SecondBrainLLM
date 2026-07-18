@@ -1,3 +1,3 @@
 # Topics
 
-- [[Wiki/Topics/llm-wiki|LLM Wiki]]
+- [[Wiki/Topics/retrieval-augmented-generation|Retrieval-Augmented Generation]]
