@@ -19,7 +19,8 @@ sources:
   - "Raw/Sources/Cortex Internal Developer Portal Strategy.md"
   - "Raw/Sources/OpsLevel Pricing.md"
   - "Raw/Sources/Introducing OpsLevel.md"
-source_count: 12
+  - "Raw/Sources/Migrate from Compass to DX.md"
+source_count: 13
 aliases:
   - "IDP"
   - "Internal Developer Platform"
@@ -43,7 +44,8 @@ Eine belastbare, herstellerunabhängige Rangliste nach aktiven Installationen od
 | --- | --- | --- | --- |
 | **Backstage** | Open-Source-Framework für Developer Portals; Apache 2.0 und ohne Lizenzkosten. Betrieb, Entwicklung und Wartung verursachen interne Kosten. | Sehr flexibel, großes Plugin-Modell, selbst betreibbar und ohne Bindung an einen SaaS-Anbieter. | Kein fertiges Produkt: Eine zentrale Mannschaft muss Anpassung, Infrastruktur, CI/CD, Support und Bereitschaft übernehmen. |
 | **Harness Internal Developer Portal** | Kommerzielles, von Backstage angetriebenes Portal. Preise auf Anfrage; Harness nennt eine Mindestabnahme von 20 Developer-Lizenzen. | Backstage-Basis mit Softwarekatalog, Self-Service, Scorecards und enger Einbindung in die Harness-Plattform. | Kein transparenter Listenpreis, Mindestabnahme und stärkster Nutzen innerhalb des Harness-Ökosystems. |
-| **Atlassian Compass** | Cloud-basiertes kommerzielles Produkt. Free-Tarif mit bis zu drei Full Users und unbegrenzt vielen Basic Users; größere Funktionsumfänge sind kostenpflichtig. | Schnell einsetzbar, Softwarekatalog und Scorecards sowie naheliegende Integration mit Atlassian-Produkten. | Nur als Cloud-Produkt verfügbar; der Free-Tarif begrenzt voll berechtigte Nutzer stark und die Bindung an das Atlassian-Ökosystem ist hoch. |
+| **Atlassian Compass** | Cloud-basiertes Übergangsprodukt. Free-Tarif mit bis zu drei Full Users und unbegrenzt vielen Basic Users; größere Funktionsumfänge sind kostenpflichtig. | Schnell einsetzbar, Softwarekatalog und Scorecards sowie direkte Integrationen mit Jira, Jira Service Management, Bitbucket und Opsgenie. | Atlassian verschiebt Katalog und Scorecards zu DX Fabric. Der Compass-Support soll am 31. Dezember 2027 enden, weshalb sich Compass nicht mehr für eine langfristige Neueinführung empfiehlt. |
+| **Atlassian DX Fabric** | Kommerzieller Nachfolger für die Katalog- und Scorecard-Funktionen von Compass. Eine öffentliche Preisliste oder ein bestätigter Free-Tarif liegt nicht vor; Atlassian verweist für Preise auf den Account-Vertrieb. | Softwarekatalog und Scorecards auf einem Daten-Lake, automatischer SCM-Import, Terraform-basierte Konfiguration, erweitertes Abhängigkeitsmodell und Synchronisierung mit Atlassian Teams. | Noch bestehende Lücken bei Jira- und Jira-Service-Management-Verknüpfungen, keine Forge-Unterstützung und keine transparenten Seat- oder Preisinformationen. |
 | **Port** | Kommerzielles SaaS-Portal. Free-Tarif bis 15 Seats; Basic ab 30 US-Dollar und Standard ab 40 US-Dollar pro Seat und Monat. | Flexibles Datenmodell, Katalog, Aktionen, Workflows und Scorecards; relativ großzügiger Einstiegstarif. | Sitzbasierte Kosten steigen mit dem Team; SSO und weitere Sicherheitsfunktionen beginnen erst in höheren Tarifen. |
 | **Cortex** | Kommerzielles Portal mit individuellem Angebot; keine öffentliche Preisliste. | Vorgefertigte Katalogmodelle, Scorecards, Workflows und Engineering-Intelligence reduzieren den Startaufwand. | Kosten sind ohne Vertriebsgespräch nicht vergleichbar; der breite Funktionsumfang kann für einen einfachen Katalog überdimensioniert sein. |
 | **OpsLevel** | Kommerzielles Portal mit nutzerbasierter, individuell angebotener Preisgestaltung. | Automatische Katalogerkennung, Scorecards und Checks sowie Self-Service-Aktionen sind als integriertes Produkt verfügbar. | Kein öffentlicher Listenpreis und kein frei zugänglicher Self-Service-Tarif; Evaluierung läuft über Demo beziehungsweise Anbietertermin. |
@@ -52,7 +54,7 @@ Eine belastbare, herstellerunabhängige Rangliste nach aktiven Installationen od
 
 - **Maximale Kontrolle und Anpassbarkeit:** Backstage, wenn ein dauerhaft verantwortliches Plattformteam vorhanden ist.
 - **Backstage ohne vollständigen Eigenbetrieb:** Harness, besonders bei bereits starker Nutzung der Harness-Plattform.
-- **Atlassian-zentrierte Organisation:** Compass.
+- **Atlassian-zentrierte Organisation:** DX Fabric direkt evaluieren; Compass nur noch als zeitlich begrenzten Proof of Concept oder bei einer bestehenden Installation berücksichtigen.
 - **Schneller SaaS-Einstieg mit transparentem Free-Tarif:** Port.
 - **Starker Fokus auf Standards und Engineering Excellence:** Cortex oder OpsLevel.
 
